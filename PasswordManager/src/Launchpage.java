@@ -1,6 +1,9 @@
 
 import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,20 +33,32 @@ public class Launchpage extends JPanel implements ActionListener{
 	Launchpage () {
 		props.setProperty("user", "joeloseiasamoah");
 		url = "jdbc:postgresql://localhost:5432/password_database?user=joeloseiasamoah";
-		
+		/*
+		 * Creation of launch page with its preferred size
+		 */
 		launch = new JPanel();
 		launch.setBackground(new Color(36, 123, 160));
+		launch.setPreferredSize(new Dimension(750, 375));
 		launch.setLayout(null);
 		
+		/*
+		 * Creation of textField
+		 */
 		text_field = new JTextField();
 		text_field.setBounds(100, 138, 550, 50);
 		
+		/*
+		 * Creation of submit button
+		 */
 		submit_button = new JButton();
 		submit_button.setBounds(275, 188, 200, 40);
 		submit_button.setBackground(new Color(232, 241, 242));
 		submit_button.setText("SUBMIT");
 		submit_button.addActionListener(this);
 		
+		/*
+		 * Creation of label for launch page
+		 */
 		wlcm = new JLabel();
 		wlcm.setText("WELCOME TO PASSWORD MANAGER");
 		wlcm.setBackground(new Color(232, 241, 242));
@@ -56,7 +71,13 @@ public class Launchpage extends JPanel implements ActionListener{
 		launch.add(submit_button);
 		launch.add(wlcm);
 	}
-
+	
+/*
+ * This method is called when the submit_button is clicked
+ * It checks if the password entered in the text field matches
+ * the correct password. if it does it repaints the frame to 
+ * introduce the main page
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == submit_button) {
@@ -73,23 +94,35 @@ public class Launchpage extends JPanel implements ActionListener{
 				frame.remove(launch);
 				frame.revalidate();
 				Mainpage mp = new Mainpage(conn, frame);
-				frame.add(mp.returnPanel1());
-				frame.add(mp.returnPanel2());
+				frame.add(mp.returnPanel1(), BorderLayout.EAST);
+				frame.add(mp.returnPanel2(), BorderLayout.WEST);
+				frame.pack();
 			}
 		}
 	}
 	
-	public void setBounds(int x, int y, int width, int height) {
-		launch.setBounds(x, y, width, height);
-	}
-	
+	/*
+	 * This method is called in the main.java file to pass the 
+	 * JFrame to launch page for it to be repainted in the 
+	 * actionPerformed() method
+	 * @param fr - JFrame of the program
+	 */
 	public void getFrame(JFrame fr) {
 		frame = fr;
 	}
 	
+	/*
+	 * Takes the master password and assigns it to mpass
+	 * @param mp master password
+	 */
 	public void getMPassword(String mp) {
 		mpass = mp;
 	}
+	
+	/*
+	 * returns the launch page panel
+	 * This method is called in main.java
+	 */
 	
 	public JPanel returnPanel() {
 		return launch;
