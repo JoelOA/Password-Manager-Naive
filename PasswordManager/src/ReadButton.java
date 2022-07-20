@@ -37,7 +37,6 @@ public class ReadButton implements ActionListener{
 			try {
 				this.doAction();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -57,7 +56,7 @@ public class ReadButton implements ActionListener{
  		ResultSet rs = st.executeQuery("SELECT * FROM password");
  		textArea.append("here are your passwords: \n");
  		while (rs.next()) {
-			textArea.setText("Company: " + rs.getString(2) + " || " + "password: " + rs.getString(3) + "\n");
+			textArea.append("Company: " + rs.getString(2) + " || " + "password: " + rs.getString(3) + "\n");
  		}
  		textArea.append("-------------------------------------------------\n");
  		rs.close();

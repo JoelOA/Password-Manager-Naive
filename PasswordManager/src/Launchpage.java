@@ -1,6 +1,5 @@
 
 import javax.swing.JPanel;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -47,12 +46,10 @@ public class Launchpage extends JPanel implements ActionListener{
 		
 		wlcm = new JLabel();
 		wlcm.setText("WELCOME TO PASSWORD MANAGER");
-		//wlcm.setForeground(new Color(232, 241, 242));
 		wlcm.setBackground(new Color(232, 241, 242));
 		wlcm.setFont(new Font("Raleway", Font.BOLD, 25));
 		wlcm.setBounds(100, 88, 550, 50);
 		wlcm.setHorizontalAlignment(JLabel.CENTER);
-		//wlcm.setVerticalAlignment(JLabel.TOP);
 		wlcm.setOpaque(true);
 		
 		launch.add(text_field);
@@ -75,8 +72,7 @@ public class Launchpage extends JPanel implements ActionListener{
                 
 				frame.remove(launch);
 				frame.revalidate();
-				frame.repaint();
-				Mainpage mp = new Mainpage(conn);
+				Mainpage mp = new Mainpage(conn, frame);
 				frame.add(mp.returnPanel1());
 				frame.add(mp.returnPanel2());
 			}

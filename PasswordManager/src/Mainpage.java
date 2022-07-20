@@ -1,9 +1,13 @@
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.sql.Connection;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
@@ -13,8 +17,8 @@ public class Mainpage {
 	JTextField tf;
 	JTextArea ta;
 	
-	Mainpage (Connection con) {
-		ta = new JTextArea();
+	Mainpage (Connection con, JFrame fr) {
+		ta = new JTextArea(11, 30);
 		ta.setBounds(50, 50, 400, 190);
 		
 		tf = new JTextField();
@@ -55,8 +59,8 @@ public class Mainpage {
         pb_panel.add(update_button.getButton());
         pb_panel.add(insert_button.getButton());
         pb_panel.add(read_button.getButton());
-        sb_panel.add(tf);
         sb_panel.add(ta);
+        sb_panel.add(tf);
 	}
 	
 	public JPanel returnPanel1() {

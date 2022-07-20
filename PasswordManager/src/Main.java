@@ -1,5 +1,3 @@
-
-
 import javax.swing.JFrame;
 
 public class Main {
@@ -18,6 +16,5 @@ public class Main {
         frame.add(lp.returnPanel());
         frame.setVisible(true);
         
-		
 	}
 }

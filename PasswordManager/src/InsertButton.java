@@ -27,7 +27,6 @@ public class InsertButton implements ActionListener{
 	InsertButton (JTextField tf, JTextArea ta, Connection con) {
 		button = new JButton();
 		button = new JButton();
-		//button.setText("DELETE");
 		button.setBackground(new Color(232, 241, 242));
 		this.textField = tf;
 		this.textArea = ta;

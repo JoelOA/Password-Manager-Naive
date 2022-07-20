@@ -27,7 +27,6 @@ public class UpdateButton implements ActionListener{
 	UpdateButton (JTextField tf, JTextArea ta, Connection conn) {
 		button = new JButton();
 		button = new JButton();
-		//button.setText("DELETE");
 		button.setBackground(new Color(232, 241, 242));
 		this.textField = tf;
 		this.textArea = ta;
@@ -41,7 +40,6 @@ public class UpdateButton implements ActionListener{
 			try {
 				this.doAction();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
